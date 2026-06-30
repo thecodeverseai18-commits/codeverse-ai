@@ -1,87 +1,80 @@
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Arial;
   background: black;
   color: white;
   overflow: hidden;
 }
 
-/* INTRO SCREEN */
 .intro {
   position: fixed;
   width: 100%;
   height: 100vh;
-  background: black;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  animation: fadeOut 6s forwards;
 }
 
-.bg-glow {
+.bg {
   position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, #4da3ff, transparent);
-  filter: blur(60px);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 30% 40%, #4da3ff, transparent 60%),
+              radial-gradient(circle at 70% 60%, #111, black 70%);
+  filter: blur(40px);
 }
 
-/* LOGO */
 .logo {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  text-align: center;
   font-size: 40px;
   opacity: 0;
-  animation: showLogo 2s forwards 1s;
+  animation: show 2s forwards 1s, move 2s forwards 4s;
 }
 
-/* HEADLINE */
 .headline {
-  margin-top: 20px;
-  font-size: 24px;
+  position: absolute;
+  top: 55%;
+  width: 100%;
+  text-align: center;
   opacity: 0;
-  animation: showText 2s forwards 3s;
+  animation: show 2s forwards 4.5s;
 }
 
-/* SOUND TEXT */
-.sound-text {
-  margin-top: 10px;
+.sound {
+  position: absolute;
+  top: 65%;
+  width: 100%;
+  text-align: center;
+  color: #bcdcff;
   opacity: 0;
-  animation: showText 1s forwards 5s;
-  color: #cfe8ff;
+  animation: show 1s forwards 5.5s;
 }
 
-/* HOME */
 .home {
   opacity: 0;
-  padding: 20px;
-  animation: showHome 2s forwards 6s;
-}
-
-/* ANIMATIONS */
-@keyframes showLogo {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes showText {
-  to { opacity: 1; }
-}
-
-@keyframes fadeOut {
-  0% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { opacity: 0; visibility: hidden; }
-}
-
-@keyframes showHome {
-  to { opacity: 1; }
+  padding: 30px;
+  animation: show 2s forwards 6.5s;
 }
 
 button {
   margin: 10px;
   padding: 10px 20px;
-  border: none;
   background: #4da3ff;
+  border: none;
   color: white;
   border-radius: 10px;
-  cursor: pointer;
 }
+
+@keyframes show {
+  to { opacity: 1; }
+}
+
+@keyframes move {
+  to {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+  }
+}
+
